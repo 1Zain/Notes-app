@@ -40,7 +40,9 @@ app.post("/create-account", async (req, res) => {
     }
 
     if(!email) {
-        return res.status(400).json({ error: true, message: "Email is required"});
+        return res
+        .status(400)
+        .json({ error: true, message: "Email is required"});
     }
     if(!password) {
         return res
@@ -78,6 +80,14 @@ app.post("/create-account", async (req, res) => {
         message: "Registration Successful",
     });
 });
+
+app.post("/login", async (req, res) => {
+    const {email, password} = req.body;
+
+    if(!email) {
+        return res.status(400).json({message: "email is required"});
+    }
+})
 
 app.listen(8000);
 
